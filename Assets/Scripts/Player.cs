@@ -3,20 +3,26 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    private float roofLimit = 4.5f;
-    private float boundryLimit = 7.4f;
-    private float speed = 1.4f;
+   
     public Rigidbody2D ballRb;
+    public float maxVelocity;
+    public float minVelocity;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ballRb = GetComponent<Rigidbody2D>();
-       
+        ballRb.linearVelocity = new Vector2(0, -minVelocity);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        if (ballRb.linearVelocity.magnitude > maxVelocity)
+        {
+            ballRb.linearVelocity = Vector2.ClampMagnitude(ballRb.linearVelocity, maxVelocity);
+        }  
     }
+
+
+   
 }
