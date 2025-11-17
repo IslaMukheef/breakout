@@ -34,6 +34,12 @@ public class Player : MonoBehaviour
                 ballRb.linearVelocityY = minVelocity;
             }
         }
+
+        if (transform.position.y < -4.3)
+        {
+            Destroy(gameObject);
+            Application.LoadLevel("GameOver");
+        }
         
     }
 
