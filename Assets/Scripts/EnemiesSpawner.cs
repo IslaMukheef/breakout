@@ -1,6 +1,7 @@
+using System;
 using UnityEngine;
 
-public class EnemiesSpawner : MonoBehaviour
+public class EnemiesSpawner : MonoBehaviour 
 {
     public GameObject[] enemies;
 
@@ -11,6 +12,7 @@ public class EnemiesSpawner : MonoBehaviour
     void Start()
     {
        SpawnEnemies();
+       DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
@@ -21,27 +23,27 @@ public class EnemiesSpawner : MonoBehaviour
 
     void SpawnEnemies()
     {
-        
-        
-            Vector3 spawnPos = new Vector3(spawnRangeX = spawnRangeX, spawnRangeY=spawnRangeY, 0);
-            foreach (var enemy in enemies)
-            {
-                for(int i=0; i<9 ; i++)
-                { 
-                   
-                   Instantiate(enemy, spawnPos, enemy.transform.rotation);
-                   spawnPos.x += 1.8f ;
-                
-                }
 
-                spawnPos.x = spawnRangeX;
-                spawnRangeY += 0.8f ;
-                spawnPos.y =  spawnRangeY;
+
+        Vector3 spawnPos = new Vector3(spawnRangeX, spawnRangeY, 0);
+        foreach (var enemy in enemies)
+        {
+            for (int i = 0; i < 9; i++)
+            {
+
+                Instantiate(enemy, spawnPos, enemy.transform.rotation);
+                spawnPos.x += 1.8f;
+
             }
-            
-       
-        
-        
-        
+
+            spawnPos.x = spawnRangeX;
+            spawnRangeY += 0.8f;
+            spawnPos.y = spawnRangeY;
+        }
+
+
+
+
+
     }
 }
