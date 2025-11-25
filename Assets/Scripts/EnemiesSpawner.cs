@@ -8,6 +8,7 @@ public class EnemiesSpawner : MonoBehaviour
     private float spawnRangeX = -7.4f;
     private float spawnRangeY = 1.9f;
     
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,7 +19,8 @@ public class EnemiesSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+            Application.LoadLevel("Menu");
     }
 
     void SpawnEnemies()

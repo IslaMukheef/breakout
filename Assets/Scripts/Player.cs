@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     
     private bool isJumping = false;
     private bool isDead = false;
+    
+
  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -59,6 +61,7 @@ public class Player : MonoBehaviour
                 StartCoroutine("DeathAfterDelay");
             
         }
+        
         
     }
 
