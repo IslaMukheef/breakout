@@ -61,6 +61,8 @@ public class Player : MonoBehaviour
                 StartCoroutine("DeathAfterDelay");
             
         }
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !isDead)
+            Application.LoadLevel("Menu");
         
         
     }
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(deathDelay);
         Destroy(gameObject);
         Application.LoadLevel("GameOver");
+        
     }
 
     // Update is called once per frame

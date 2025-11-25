@@ -19,8 +19,7 @@ public class EnemiesSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-            Application.LoadLevel("Menu");
+        
     }
 
     void SpawnEnemies()
